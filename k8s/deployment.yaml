@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hiyrf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hiyrf
+  template:
+    metadata:
+      labels:
+        app: hiyrf
+    spec:
+      containers:
+      - image: okteto.dev/hiyrf:latest
+        name: hiyrf
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "32c2b1d8-5b1c-4198-8cac-6b1d576b0789"
+        - name: Vless_Path
+          value: "/vl876"
+        - name: Vmess_UUID
+          value: "4c5495b8-a273-4911-92e5-5d31ce9bd18a"
+        - name: Vmess_Path
+          value: "/vm0009"
+        - name: Share_Path
+          value: "/v2link"
